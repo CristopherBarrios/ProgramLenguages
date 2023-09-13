@@ -1,0 +1,32 @@
+<script>
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+function adivina_el_numero_computadora(x) {
+
+    alert("===========================================\n                                  Bienvenido al juego                \n===========================================\nSelecciona un numero entre 1 y "+ x + " para que la computadora intente adivinarlo.");
+
+    var limite_inferior = 1;
+    var limite_superior = x;
+
+    var respuesta = "";
+
+    while (respuesta != "c") {
+        if (limite_inferior != limite_superior) {
+            var prediccion = Math.floor(getRandomArbitrary(limite_inferior, limite_superior));
+          }else{
+            prediccion = limite_inferior;
+          }
+        respuesta = prompt("Mi prediccion es " + prediccion + " si es muy alta ingresa (A). Si es muy baja, ingresa (B). Si es correcta, ingrese (C): ").toLowerCase();
+
+        if (respuesta == "a"){
+            limite_superior = prediccion - 1;
+        }else if(respuesta == "b"){
+            limite_inferior = prediccion + 1;
+        }
+  }
+  alert("Siii! la computadora logro adivinar tu numero: "+ prediccion);
+}
+  adivina_el_numero_computadora(10)
+</script>
